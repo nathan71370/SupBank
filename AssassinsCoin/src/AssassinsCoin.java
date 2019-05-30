@@ -1,3 +1,4 @@
+import java.awt.event.ActionEvent;
 import java.security.Security;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +17,9 @@ public class AssassinsCoin {
 
     public static void main(String[] args) {
 
-        LoginForm loginForm = new LoginForm();
+        //LoginForm loginForm = new LoginForm();
+        UserAccountForm userAccountForm = new UserAccountForm();
+        userAccountForm.setVisible(true);
 
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 

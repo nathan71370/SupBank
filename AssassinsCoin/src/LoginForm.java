@@ -1,4 +1,3 @@
-
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -62,8 +61,10 @@ public class LoginForm extends JFrame implements ActionListener{
         String userName = userName_text.getText();
         String password = password_text.getText();
         if (userName.trim().equals("admin") && password.trim().equals("admin")) {
-            message.setText(" Hello " + userName
-                    + "");
+            message.setText(" Hello " + userName + "");
+
+            UserAccountForm userAccountForm = new UserAccountForm();
+
         } else {
             message.setText(" Invalid user.. ");
         }
