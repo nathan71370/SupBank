@@ -16,6 +16,8 @@ public class AssassinsCoin {
 
     public static void main(String[] args) {
 
+        LoginForm loginForm = new LoginForm();
+
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 
 
