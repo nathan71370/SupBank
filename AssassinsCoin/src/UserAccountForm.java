@@ -37,6 +37,7 @@ public class UserAccountForm extends JFrame {
 
         panel = new JPanel(new GridLayout(1, 2));
 
+
         panel.add(user_label);
         panel.add(userName_text);
         panel.add(password_label);
