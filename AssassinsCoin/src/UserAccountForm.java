@@ -14,16 +14,24 @@ import javax.swing.JTextField;
 public class UserAccountForm extends JFrame {
 
     JPanel panel;
-    JLabel user_label, password_label, message;
+    JLabel user_label, password_label, message, user_balance;
     JTextField userName_text;
     JPasswordField password_text;
-    JButton submit, cancel;
+    JButton submit, cancel, transfer_money;
 
     UserAccountForm(){
         // User Label
         user_label = new JLabel();
         user_label.setText("User Name :");
         userName_text = new JTextField();
+
+        // User Balance
+        user_balance = new JLabel();
+        user_balance.setText(" GET USER BALANCE ");
+
+        // Transfer Money
+        transfer_money = new JButton();
+
 
         // Password
 
