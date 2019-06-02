@@ -12,7 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class UserAccountForm extends JFrame {
-    
+
     JPanel panel;
     JLabel user_label, password_label, message;
     JTextField userName_text;
