@@ -31,9 +31,14 @@ public class Server {
             stmt = conn.createStatement();
 
             System.out.println("Database created successfully...");
-            String sql = "CREATE TABLE IF NOT EXISTS WALLET " +
+
+            String sql = "CREATE DATABASE IF NOT EXISTS BLOCKCHAIN";
+
+            stmt.executeUpdate(sql);
+
+            sql = "CREATE TABLE IF NOT EXISTS WALLET " +
                     "(id INTEGER not NULL AUTO_INCREMENT, " +
-                    " name SUBSTRING , " +
+                    " name VARCHAR(255), " +
                     " value DOUBLE, " +
                     " PRIMARY KEY ( id ))";
 
@@ -63,17 +68,15 @@ public class Server {
             }//end finally try
         }
 
-
-
-        int Port =Integer.parseInt(JOptionPane.showInputDialog("Input Your Port : "));
-        String IP = JOptionPane.showInputDialog("Input Your IP Server : ");
-        ServerSocket serverSock=new ServerSocket(6066);
-        Socket Sock=serverSock .accept();
-        DataOutputStream out =new DataOutputStream(Sock.getOutputStream());
-        out.writeUTF("i am fine, thank you");
+        ServerSocket serverSock = new ServerSocket(6066);
         AssassinsCoin assassinsCoin = new AssassinsCoin();
-        DataInputStream in= new DataInputStream(Sock.getInputStream());
-        System.out.println(in.readUTF());
-        Sock.close();
+        while(true) {
+            Socket Sock = serverSock.accept();
+            DataOutputStream out = new DataOutputStream(Sock.getOutputStream());
+            out.writeUTF("i am fine, thank you");
+            DataInputStream in = new DataInputStream(Sock.getInputStream());
+            System.out.println(in.readUTF());
+            //Sock.close();
+        }
     }
 }
