@@ -3,19 +3,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+
 public class AssassinsCoin {
 
     public static ArrayList<Block> blockchain = new ArrayList<Block>();
     public static HashMap<String,TransactionOutput> UTXOs = new HashMap<String,TransactionOutput>();
 
-    public static int difficulty = 3;
+    public static int difficulty = 5;
     public static float minimumTransaction = 0.1f;
     public static Wallet walletA;
     public static Wallet walletB;
     public static Transaction genesisTransaction;
 
-    public static void main(String[] args) {
 
+
+
+    public AssassinsCoin(){
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 
 
@@ -60,6 +63,7 @@ public class AssassinsCoin {
         isChainValid();
 
     }
+
 
     public static Boolean isChainValid() {
         Block currentBlock;
