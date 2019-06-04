@@ -43,7 +43,7 @@ public class Wallet {
     }
 
     public Transaction sendFunds(PublicKey _recipient,float value ) {
-        if(getBalance() < value) { //gather balance and check funds.
+        if(getBalance() < value) {
             System.out.println("#Not Enough funds to send transaction. Transaction Discarded.");
             return null;
         }

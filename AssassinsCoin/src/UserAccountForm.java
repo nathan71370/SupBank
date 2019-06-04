@@ -20,31 +20,22 @@ public class UserAccountForm extends JFrame {
     JButton submit, cancel, transfer_money;
 
     UserAccountForm(){
-        // User Label
         user_label = new JLabel();
         user_label.setText("User Name :");
         userName_text = new JTextField();
 
-        // User Balance
         user_balance = new JLabel();
         user_balance.setText(" GET USER BALANCE ");
 
-        // Transfer Money
         transfer_money = new JButton();
-
-
-        // Password
 
         password_label = new JLabel();
         password_label.setText("Password :");
         password_text = new JPasswordField();
 
-        // Submit
-
         submit = new JButton("SUBMIT");
 
         panel = new JPanel(new GridLayout(1, 2));
-
 
         panel.add(user_label);
         panel.add(userName_text);
@@ -57,8 +48,6 @@ public class UserAccountForm extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Adding the listeners to components..
-        //submit.addActionListener(this);
         add(panel, BorderLayout.CENTER);
         setTitle("Account");
         setSize(600, 600);
