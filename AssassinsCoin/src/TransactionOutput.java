@@ -7,7 +7,6 @@ public class TransactionOutput {
     public float value;
     public String parentTransactionId;
 
-    //Constructor
     public TransactionOutput(PublicKey reciepient, float value, String parentTransactionId) {
         this.reciepient = reciepient;
         this.value = value;
@@ -15,7 +14,6 @@ public class TransactionOutput {
         this.id = StringHash.applySha256(StringHash.getStringFromKey(reciepient)+Float.toString(value)+parentTransactionId);
     }
 
-    //Check if coin belongs to you
     public boolean isMine(PublicKey publicKey) {
         return (publicKey == reciepient);
     }
