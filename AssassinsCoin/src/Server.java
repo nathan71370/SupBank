@@ -8,15 +8,15 @@ import java.sql.*;
 
 public class Server {
 
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    /*static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://127.0.0.1/blockchain";
 
     static final String USER = "root";
-    static final String PASS = "root";
+    static final String PASS = "root";*/
 
 
     public static void main(String[] args) throws IOException{
-        Connection conn = null;
+        /*Connection conn = null;
         Statement stmt = null;
         try{
             //STEP 2: Register JDBC driver
@@ -66,7 +66,7 @@ public class Server {
             }catch(SQLException se){
                 se.printStackTrace();
             }//end finally try
-        }
+        }*/
 
         ServerSocket serverSock = new ServerSocket(6066);
         AssassinsCoin assassinsCoin = new AssassinsCoin();

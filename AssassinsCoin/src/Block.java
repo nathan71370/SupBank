@@ -19,6 +19,7 @@ public class Block {
     }
 
 
+
     public String calculateHash() {
         String calculatedhash = StringHash.applySha256(
                 previousHash +
