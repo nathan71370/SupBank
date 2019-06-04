@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Transaction {
 
-    public String transactionId;
+    String transactionId;
     public PublicKey sender;
     public PublicKey reciepient;
     public float value;
@@ -32,7 +32,7 @@ public class Transaction {
         );
     }
 
-    public void generateSignature(PrivateKey privateKey) {
+    void generateSignature(PrivateKey privateKey) {
         String data = StringHash.getStringFromKey(sender) + StringHash.getStringFromKey(reciepient) + Float.toString(value)	;
         signature = StringHash.applyECDSASig(privateKey,data);
     }
@@ -44,7 +44,7 @@ public class Transaction {
 
     public boolean processTransaction() {
 
-        if(verifiySignature() == false) {
+        if(!verifiySignature()) {
             System.out.println("#Transaction Signature failed to verify");
             return false;
         }

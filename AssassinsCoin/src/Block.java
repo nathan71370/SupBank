@@ -45,7 +45,7 @@ public class Block {
 
         if(transaction == null) return false;
         if((previousHash != "0")) {
-            if((transaction.processTransaction() != true)) {
+            if((!transaction.processTransaction())) {
                 System.out.println("Transaction failed to process. Discarded.");
                 return false;
             }

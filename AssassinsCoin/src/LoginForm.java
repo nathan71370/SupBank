@@ -20,18 +20,13 @@ public class LoginForm extends JFrame implements ActionListener{
     JButton submit, cancel;
 
     LoginForm(){
-        // User Label
         user_label = new JLabel();
         user_label.setText("User Name :");
         userName_text = new JTextField();
 
-        // Password
-
         password_label = new JLabel();
         password_label.setText("Password :");
         password_text = new JPasswordField();
-
-        // Submit
 
         submit = new JButton("SUBMIT");
 
@@ -48,7 +43,6 @@ public class LoginForm extends JFrame implements ActionListener{
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Adding the listeners to components..
         submit.addActionListener(this);
         add(panel, BorderLayout.CENTER);
         setTitle("Please Login Here !");
