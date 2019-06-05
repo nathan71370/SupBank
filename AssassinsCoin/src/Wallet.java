@@ -66,4 +66,13 @@ public class Wallet {
         }
         return newTransaction;
     }
+
+    public PrivateKey getPrivateKey(){
+        System.out.println(privateKey);
+        return this.privateKey;
+    }
+
+    public PublicKey getPublicKey(){
+        return this.publicKey;
+    }
 }

@@ -10,7 +10,7 @@ public class Client {
     public static void main(String[] args)throws IOException {
 
         LoginForm f = new LoginForm();
-        UserAccountForm f1 = new UserAccountForm();
+        //UserAccountForm f1 = new UserAccountForm();
 
         Socket sock=new Socket("localhost", 6066);
         DataInputStream in= new DataInputStream(sock.getInputStream());
