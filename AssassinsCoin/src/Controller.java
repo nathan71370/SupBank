@@ -29,7 +29,8 @@ public class Controller implements ActionListener {
             System.out.println("Lancement de la fonction générate key ");
             newKey.generateKeyPair();
 
-            //System.out.println("My key : " + newKey.getPrivateKey());
+            System.out.println("My Private key : " + newKey.getPrivateKey());
+            System.out.println("My Public key : " + newKey.getPublicKey());
 
             System.out.println("Enregistrement de la clé ");
             System.out.println("Inscription réussie ");
