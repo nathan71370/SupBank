@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.Security;
 
 public class Controller implements ActionListener {
     private LoginForm loginForm;
@@ -11,6 +12,9 @@ public class Controller implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+        newKey = new Wallet();
+
         if (e.getSource() == loginForm.connection) {
             String keyValue = String.valueOf(loginForm.key_text.getPassword());
             if (keyValue.equals("")) {
