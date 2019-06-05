@@ -69,9 +69,10 @@ public class Server {
         }*/
 
         ServerSocket serverSock = new ServerSocket(6066);
-        AssassinsCoin assassinsCoin = new AssassinsCoin();
+
         while(true) {
             Socket Sock = serverSock.accept();
+            AssassinsCoin assassinsCoin = new AssassinsCoin();
             DataOutputStream out = new DataOutputStream(Sock.getOutputStream());
             out.writeUTF("i am fine, thank you");
             DataInputStream in = new DataInputStream(Sock.getInputStream());
