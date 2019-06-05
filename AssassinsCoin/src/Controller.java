@@ -28,11 +28,8 @@ public class Controller implements ActionListener {
         } else if(e.getSource() == loginForm.register) {
             System.out.println("Lancement de la fonction générate key ");
             newKey.generateKeyPair();
-            System.out.println("My public key : " + StringHash.getStringFromKey(newKey.getPublicKey()));
             System.out.println("My private key : " + StringHash.getStringFromKey(newKey.getPrivateKey()));
-
-            System.out.println("My Private key : " + newKey.getPrivateKey());
-            System.out.println("My Public key : " + newKey.getPublicKey());
+            System.out.println("My public key : " + StringHash.getStringFromKey(newKey.getPublicKey()));
 
             System.out.println("Enregistrement de la clé ");
             System.out.println("Inscription réussie ");
