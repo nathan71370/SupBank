@@ -3,24 +3,31 @@ import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener {
     private LoginForm loginForm;
+    private Wallet newKey;
 
-    public Controller(LoginForm loginForm){
-        this.loginForm=loginForm;
+    public Controller(LoginForm loginForm) {
+        this.loginForm = loginForm;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==loginForm.submit){
-            String password = String.valueOf(loginForm.key_text.getPassword());
-            if (password.trim().equals("admin")) {
-                loginForm.message.setText(" Hello " + password + "");
-
-                UserAccountForm userAccountForm = new UserAccountForm();
-
+        if (e.getSource() == loginForm.connection) {
+            String keyValue = String.valueOf(loginForm.key_text.getPassword());
+            if (keyValue.equals("")) {
+                System.out.println("Veuillez entrer une valeur ! ");
+            } else if (keyValue.equals("test")) {
+                System.out.println("Erreur, cette clé n'existe pas !");
             } else {
-                loginForm.message.setText(" Invalid user.. ");
+                System.out.println("Connexion réussie !");
+                UserAccountForm userAccountForm = new UserAccountForm();
             }
-        }
+        } else if(e.getSource() == loginForm.register) {
+            System.out.println("Lancement de la fonction générate key ");
+            newKey.generateKeyPair();
+            System.out.println("My key : " + newKey.getPrivateKey());
 
+            System.out.println("Enregistrement de la clé ");
+            System.out.println("Inscription réussie ");
+        }
     }
 }

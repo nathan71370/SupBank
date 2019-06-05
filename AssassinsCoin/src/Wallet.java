@@ -15,6 +15,7 @@ public class Wallet {
     }
 
     public void generateKeyPair() {
+        System.out.println("Lancement de la fonction générate key ");
         try {
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA","BC");
             SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
