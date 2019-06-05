@@ -16,8 +16,6 @@ public class AssassinsCoin {
     public static Transaction genesisTransaction;
 
 
-
-
     public AssassinsCoin(){
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 

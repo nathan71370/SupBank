@@ -69,7 +69,7 @@ public class Wallet {
     }
 
     public PrivateKey getPrivateKey(){
-        System.out.println(privateKey);
+        //System.out.println(privateKey);
         return this.privateKey;
     }
 
