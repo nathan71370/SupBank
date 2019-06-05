@@ -28,7 +28,7 @@ public class AssassinsCoin {
         walletA.getPublicKey();
 
 
-        genesisTransaction = new Transaction(coinbase.publicKey, walletA.publicKey, 100f, null);
+        genesisTransaction = new Transaction(coinbase.publicKey, walletA.publicKey, 2000f, null);
         genesisTransaction.generateSignature(coinbase.privateKey);
         genesisTransaction.transactionId = "0";
         genesisTransaction.outputs.add(new TransactionOutput(genesisTransaction.reciepient, genesisTransaction.value, genesisTransaction.transactionId));

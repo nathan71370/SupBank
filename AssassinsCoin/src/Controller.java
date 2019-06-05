@@ -6,24 +6,25 @@ public class Controller implements ActionListener {
     private LoginForm loginForm;
     private Wallet newKey;
 
-    public Controller(LoginForm loginForm) {
+    public Controller(LoginForm loginForm, Wallet newKey) {
         this.loginForm = loginForm;
+        this.newKey= newKey;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
-        newKey = new Wallet();
+        //newKey = new Wallet();
 
         if (e.getSource() == loginForm.connection) {
             String keyValue = String.valueOf(loginForm.key_text.getPassword());
             if (keyValue.equals("")) {
                 System.out.println("Veuillez entrer une valeur ! ");
-            } else if (keyValue.equals("test")) {
-                System.out.println("Erreur, cette clé n'existe pas !");
-            } else {
+            } else if (keyValue.equals(StringHash.getStringFromKey(newKey.getPrivateKey()))) {
                 System.out.println("Connexion réussie !");
                 UserAccountForm userAccountForm = new UserAccountForm();
+            } else {
+                System.out.println("Erreur, cette clé n'existe pas !");
             }
         } else if(e.getSource() == loginForm.register) {
             System.out.println("Lancement de la fonction générate key ");
