@@ -14,28 +14,22 @@ import javax.swing.JTextField;
 
 public class LoginForm extends JFrame implements ActionListener{
     JPanel panel;
-    JLabel user_label, password_label, message;
-    JTextField userName_text;
-    JPasswordField password_text;
+    JLabel key_label, message;
+    JPasswordField key_text;
     JButton submit, cancel;
 
     LoginForm(){
-        user_label = new JLabel();
-        user_label.setText("User Name :");
-        userName_text = new JTextField();
 
-        password_label = new JLabel();
-        password_label.setText("Password :");
-        password_text = new JPasswordField();
+        key_label = new JLabel();
+        key_label.setText("Connection Key :");
+        key_text = new JPasswordField();
 
         submit = new JButton("SUBMIT");
 
         panel = new JPanel(new GridLayout(3, 1));
 
-        panel.add(user_label);
-        panel.add(userName_text);
-        panel.add(password_label);
-        panel.add(password_text);
+        panel.add(key_label);
+        panel.add(key_text);
 
         message = new JLabel();
         panel.add(message);
@@ -52,10 +46,9 @@ public class LoginForm extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent ae) {
-        String userName = userName_text.getText();
-        String password = password_text.getText();
-        if (userName.trim().equals("admin") && password.trim().equals("admin")) {
-            message.setText(" Hello " + userName + "");
+        String password = key_text.getText();
+        if (password.trim().equals("admin")) {
+            message.setText(" Hello " + password + "");
 
             UserAccountForm userAccountForm = new UserAccountForm();
 
