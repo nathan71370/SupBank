@@ -11,11 +11,10 @@ public class Wallet {
     public HashMap<String,TransactionOutput> UTXOs = new HashMap<String,TransactionOutput>();
 
     public Wallet(){
-        generateKeyPair();
+        //generateKeyPair();
     }
 
     public void generateKeyPair() {
-        System.out.println("Lancement de la fonction générate key ");
         try {
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA","BC");
             SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
