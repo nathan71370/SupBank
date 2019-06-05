@@ -13,48 +13,58 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class LoginForm extends JFrame implements ActionListener{
-    JPanel panel;
+    JPanel panel1, panel2;
     JLabel key_label, message;
     JPasswordField key_text;
     JButton submit, cancel;
+    Controller control;
 
-    LoginForm(){
-
-        key_label = new JLabel();
-        key_label.setText("Connection Key :");
-        key_text = new JPasswordField();
-
-        submit = new JButton("SUBMIT");
-
-        panel = new JPanel(new GridLayout(3, 1));
-
-        panel.add(key_label);
-        panel.add(key_text);
-
-        message = new JLabel();
-        panel.add(message);
-        panel.add(submit);
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        submit.addActionListener(this);
-        add(panel, BorderLayout.CENTER);
+    public LoginForm(){
+        init();
+        createView();
         setTitle("Please Login Here !");
         setSize(300, 100);
         setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
+    private void init(){
+        //JLabel
+        key_label = new JLabel("Connection Key :");
+        message = new JLabel("test");
+
+        //JTextField
+        key_text = new JPasswordField();
+
+        //JButton
+        submit = new JButton("SUBMIT");
+
+        control = new Controller(this);
+
+    }
+
+    private void createView(){
+        //JPanel
+        panel1 = new JPanel(new GridLayout(3, 1));
+        panel2 = new JPanel();
+
+        panel1.add(key_label);
+        panel1.add(key_text);
+        panel1.add(message);
+        panel1.add(submit);
+
+        panel2.add(panel1, BorderLayout.CENTER);
+        setControlButton(control);
+        setContentPane(panel2);
+    }
+
+    public void setControlButton(Controller listener) {
+        submit.addActionListener(listener);
+    }
+
     public void actionPerformed(ActionEvent ae) {
-        String password = key_text.getText();
-        if (password.trim().equals("admin")) {
-            message.setText(" Hello " + password + "");
 
-            UserAccountForm userAccountForm = new UserAccountForm();
-
-        } else {
-            message.setText(" Invalid user.. ");
-        }
 
     }
 

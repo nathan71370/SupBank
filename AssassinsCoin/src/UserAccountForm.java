@@ -12,30 +12,40 @@ import javax.swing.JTextField;
 
 public class UserAccountForm extends JFrame {
 
-    JPanel panel0, panel1;
+    JPanel panel0, panel1, panel2;
     JLabel user_label, password_label, message, user_balance_label, transfert_to_label, transfert_amount_label;
     JTextField transfert_to, tranfert_amount;
     JPasswordField password_text;
     JButton cancel, transfer_money;
 
-    UserAccountForm(){
-        user_label = new JLabel();
-        user_label.setText("Hello User : -- GET USER CONNECTED --" );
+    public UserAccountForm(){
+        setTitle("Account");
+        init();
+        createView();
+        setSize(600, 600);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
-        user_balance_label = new JLabel();
-        user_balance_label.setText("-- GET USER CONNECTED -- : -- GET USER BALANCE --");
+    private void init(){
+        //JLabel
+        user_label = new JLabel("Hello User : -- GET USER CONNECTED --");
+        user_balance_label = new JLabel("-- GET USER CONNECTED -- : -- GET USER BALANCE --");
+        transfert_to_label = new JLabel("Transfer to : ");
+        transfert_amount_label = new JLabel("Amount : ");
+        password_label = new JLabel("Password :");
 
-        transfert_to_label.setText("Transfer to : ");
+        //JTextField
         transfert_to = new JTextField();
-        transfert_amount_label.setText("Amount : ");
         tranfert_amount = new JTextField();
-        transfer_money = new JButton();
-
-        password_label = new JLabel();
-        password_label.setText("Password :");
         password_text = new JPasswordField();
 
+        //JButton
+        transfer_money = new JButton();
+    }
 
+    private void createView(){
+        //Jpanel
         panel0 = new JPanel(new GridLayout(1, 2));
         panel0.add(user_label);
         panel0.add(user_balance_label);
@@ -47,14 +57,10 @@ public class UserAccountForm extends JFrame {
         panel1.add(tranfert_amount);
         panel1.add(transfer_money);
 
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        add(panel0, BorderLayout.CENTER);
-        add(panel1, BorderLayout.CENTER);
-        setTitle("Account");
-        setSize(600, 600);
-        setVisible(true);
+        //add(panel0, BorderLayout.CENTER);
+        panel2 = new JPanel();
+        panel2.add(panel1, BorderLayout.CENTER);
+        setContentPane(panel2);
 
     }
 
