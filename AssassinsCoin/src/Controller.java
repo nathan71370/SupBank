@@ -4,7 +4,7 @@ import java.security.Security;
 
 public class Controller implements ActionListener {
     private LoginForm loginForm;
-    private Wallet newKey;
+    public Wallet newKey = new Wallet();
 
     public Controller(LoginForm loginForm, Wallet newKey) {
         this.loginForm = loginForm;
@@ -29,8 +29,8 @@ public class Controller implements ActionListener {
         } else if(e.getSource() == loginForm.register) {
             System.out.println("Lancement de la fonction générate key ");
             newKey.generateKeyPair();
-            System.out.println("My public key : " + StringHash.getStringFromKey(newKey.getPublicKey()));
             System.out.println("My private key : " + StringHash.getStringFromKey(newKey.getPrivateKey()));
+            System.out.println("My public key : " + StringHash.getStringFromKey(newKey.getPublicKey()));
 
             System.out.println("Enregistrement de la clé ");
             System.out.println("Inscription réussie ");
