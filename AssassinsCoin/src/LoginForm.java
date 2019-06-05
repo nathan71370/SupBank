@@ -16,7 +16,7 @@ public class LoginForm extends JFrame implements ActionListener{
     JPanel panel1, panel2;
     JLabel key_label, message;
     JPasswordField key_text;
-    JButton submit, cancel;
+    JButton connection, register;
     Controller control;
 
     public LoginForm(){
@@ -31,17 +31,16 @@ public class LoginForm extends JFrame implements ActionListener{
 
     private void init(){
         //JLabel
-        key_label = new JLabel("Connection Key :");
-        message = new JLabel("test");
+        key_label = new JLabel("My Key :");
 
         //JTextField
         key_text = new JPasswordField();
 
         //JButton
-        submit = new JButton("SUBMIT");
+        connection = new JButton("Connection");
+        register = new JButton("Register");
 
         control = new Controller(this);
-
     }
 
     private void createView(){
@@ -51,8 +50,9 @@ public class LoginForm extends JFrame implements ActionListener{
 
         panel1.add(key_label);
         panel1.add(key_text);
-        panel1.add(message);
-        panel1.add(submit);
+        panel1.add(connection);
+        panel1.add(register);
+
 
         panel2.add(panel1, BorderLayout.CENTER);
         setControlButton(control);
@@ -60,12 +60,10 @@ public class LoginForm extends JFrame implements ActionListener{
     }
 
     public void setControlButton(Controller listener) {
-        submit.addActionListener(listener);
+        connection.addActionListener(listener);
+        register.addActionListener(listener);
     }
 
-    public void actionPerformed(ActionEvent ae) {
-
-
+    public void actionPerformed(ActionEvent e) {
     }
-
 }
