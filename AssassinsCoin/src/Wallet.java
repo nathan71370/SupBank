@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.security.*;
 import java.security.spec.ECGenParameterSpec;
 import java.util.ArrayList;
