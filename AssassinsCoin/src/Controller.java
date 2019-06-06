@@ -5,16 +5,21 @@ import java.security.Security;
 public class Controller implements ActionListener {
     private LoginForm loginForm;
     public Wallet newKey = new Wallet();
+    private UserAccountForm userAccountForm;
 
-    public Controller(LoginForm loginForm, Wallet newKey) {
+    public Controller(LoginForm loginForm, Wallet newKey, UserAccountForm userAccountForm) {
         this.loginForm = loginForm;
         this.newKey= newKey;
+        this.userAccountForm = userAccountForm;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         //newKey = new Wallet();
+        if(e.getSource() == userAccountForm.start_minning){
+            
+        }
 
         if (e.getSource() == loginForm.connection) {
             String keyValue = String.valueOf(loginForm.key_text.getPassword());
@@ -35,5 +40,6 @@ public class Controller implements ActionListener {
             System.out.println("Enregistrement de la clé ");
             System.out.println("Inscription réussie ");
         }
+
     }
 }
