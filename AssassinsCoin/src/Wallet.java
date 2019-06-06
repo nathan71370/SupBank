@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.security.*;
 import java.security.spec.ECGenParameterSpec;
 import java.util.ArrayList;
@@ -73,5 +76,19 @@ public class Wallet {
 
     public PublicKey getPublicKey(){
         return this.publicKey;
+    }
+
+    public void writeToFile(String path, byte[]key) throws IOException {
+        File f = new File(path);
+        FileOutputStream fos = new FileOutputStream(f);
+        if (! f.exists()) {
+            f.getParentFile().mkdirs();
+            fos.write(key);
+        }
+        else {
+            fos.write(key);
+        }
+        fos.flush();
+        fos.close();
     }
 }
