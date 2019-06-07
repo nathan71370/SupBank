@@ -21,12 +21,20 @@ public class Controller implements ActionListener {
         //newKey = new Wallet();
         if (e.getSource() == loginForm.connection) {
             String keyValue = String.valueOf(loginForm.key_text.getPassword());
-            for (int i = 0; i < AssassinsCoin.walletHashMap.size(); i++) {
-                if(AssassinsCoin.walletHashMap.get(newKey.getPrivateKey()).equals(newKey)){
-                    System.out.println("Connexion réussie !");
-                    UserAccountForm userAccountForm = new UserAccountForm(newKey);
-                    success = true;
+
+            try {
+                BufferedReader br = new BufferedReader(new FileReader("keyPrivate.txt"));
+                String line;
+                while ((line = br.readLine()) != null) {
+                    if(keyValue.equals(line)) {
+                        System.out.println("Connexion réussie !");
+                        UserAccountForm userAccountForm = new UserAccountForm(newKey);
+                        success = true;
+                    }
                 }
+                br.close();
+            } catch (IOException exe) {
+                System.out.println(exe);
             }
             if (!success) {
                 System.out.println("Erreur, cette clé n'existe pas !");
@@ -44,6 +52,7 @@ public class Controller implements ActionListener {
             } catch (IOException ex) {
                 System.out.println(ex);
             }
+            UserAccountForm userAccountForm = new UserAccountForm(newKey);
             System.out.println("Inscription réussie ");
         }
     }

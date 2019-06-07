@@ -48,7 +48,7 @@ public class UserAccountForm extends JFrame {
         password_text = new JPasswordField();
 
         //JButton
-        transfer_money = new JButton("Transfert Money");
+        transfer_money = new JButton("Transfer Money");
         start_mining = new JButton("Start Mining");
 
         controlUser = new ControllerUser(this, wallet);
