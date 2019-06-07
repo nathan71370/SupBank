@@ -80,6 +80,7 @@ public class UserAccountForm extends JFrame {
 
     private void setControlButton(ControllerUser listener) {
         start_mining.addActionListener(listener);
+        transfer_money.addActionListener(listener);
     }
 
     private JToolBar createToolBar() {

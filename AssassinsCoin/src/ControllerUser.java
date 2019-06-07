@@ -71,7 +71,19 @@ public class ControllerUser implements ActionListener{
 
                 }
             }).start();
-        }
+        } else if (e.getSource() == userAccountForm.transfer_money) {
+                    Block block = new Block(previousBlock.hash);
+                    System.out.println("\nWalletA Attempting to send more funds (1000) than it has...");
+                    if(AssassinsCoin.walletHashMap.get(userAccountForm.transfert_to_label.getText())!=null) {
+                        block.addTransaction(wallet.sendFunds(StringHash.getPublicKeyFromString(userAccountForm.transfert_to_label.getText()), Float.parseFloat(userAccountForm.transfert_amount_label.getText())));
+                        assassinsCoin.addBlock(block);
+                        previousBlock = block;
+                    }
+                    else{
+                        System.out.println("Wallet does not exist!");
+                    }
+
+                }
 
     }
 

@@ -18,16 +18,12 @@ public class Controller implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
-        //newKey = new Wallet();
         if (e.getSource() == loginForm.connection) {
-            String keyValue = String.valueOf(loginForm.key_text.getPassword());
-            for (int i = 0; i < AssassinsCoin.walletHashMap.size(); i++) {
                 if(AssassinsCoin.walletHashMap.get(newKey.getPrivateKey()).equals(newKey)){
                     System.out.println("Connexion réussie !");
                     UserAccountForm userAccountForm = new UserAccountForm(newKey);
                     success = true;
                 }
-            }
             if (!success) {
                 System.out.println("Erreur, cette clé n'existe pas !");
             }
