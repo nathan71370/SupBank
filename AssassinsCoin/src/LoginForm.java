@@ -1,19 +1,12 @@
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.security.Security;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import javax.swing.*;
 
-public class LoginForm extends JFrame implements ActionListener{
+public class LoginForm extends JFrame{
     JPanel panel1, panel2;
     JLabel key_label, message;
     JPasswordField key_text;
@@ -27,16 +20,20 @@ public class LoginForm extends JFrame implements ActionListener{
         setSize(300, 100);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
-    private void init(){
+    private void init() {
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (ClassNotFoundException | InstantiationException |
+                IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            throw new RuntimeException("Test Failed. MetalLookAndFeel not set "
+                    + "for frame");
+        }
         //JLabel
         key_label = new JLabel("My Key :");
-
         //JTextField
         key_text = new JPasswordField();
-
         //JButton
         connection = new JButton("Connection");
         register = new JButton("Register");
@@ -55,17 +52,15 @@ public class LoginForm extends JFrame implements ActionListener{
         panel1.add(connection);
         panel1.add(register);
 
-
         panel2.add(panel1, BorderLayout.CENTER);
+
         setControlButton(control);
         setContentPane(panel2);
     }
 
-    public void setControlButton(Controller listener) {
+    private void setControlButton(Controller listener) {
         connection.addActionListener(listener);
         register.addActionListener(listener);
     }
 
-    public void actionPerformed(ActionEvent e) {
-    }
 }

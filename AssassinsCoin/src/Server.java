@@ -72,6 +72,7 @@ public class Server {
 
         while(true) {
             Socket Sock = serverSock.accept();
+
             AssassinsCoin assassinsCoin = new AssassinsCoin();
             DataOutputStream out = new DataOutputStream(Sock.getOutputStream());
             out.writeUTF("i am fine, thank you");
