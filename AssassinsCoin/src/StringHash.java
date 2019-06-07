@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -52,6 +53,18 @@ public class StringHash {
     public static String getStringFromKey(Key key) {
         return Base64.getEncoder().encodeToString(key.getEncoded());
     }
+
+    public static PublicKey getPublicKeyFromString(String string){
+        PublicKey publicKey;
+
+        for (int i = 0; i < AssassinsCoin.walletHashMap.size(); i++) {
+            if(AssassinsCoin.walletHashMap.get(AssassinsCoin.getCurrentWallet().getPrivateKey()).equals(AssassinsCoin.getCurrentWallet())) {
+                publicKey = AssassinsCoin.walletHashMap.get(AssassinsCoin.getCurrentWallet().getPrivateKey()).publicKey;
+            }
+        }
+        return AssassinsCoin.walletHashMap.get(AssassinsCoin.getCurrentWallet().getPrivateKey()).publicKey;
+    }
+
 
     public static String getDifficultyString(int difficulty) {
         return new String(new char[difficulty]).replace('\0', '0');
