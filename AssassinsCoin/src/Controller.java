@@ -1,11 +1,14 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.Security;
+import java.io.*;
+import java.nio.charset.Charset;
 
 public class Controller implements ActionListener {
     private LoginForm loginForm;
     private Wallet newKey;
     private boolean success = false;
+    private Writer writer;
 
     public Controller(LoginForm loginForm, Wallet newKey) {
         this.loginForm = loginForm;
@@ -32,12 +35,16 @@ public class Controller implements ActionListener {
             System.out.println("Lancement de la fonction générate key ");
             newKey.generateKeyPair();
             AssassinsCoin.walletHashMap.put(newKey.getPrivateKey(),newKey);
-            System.out.println("My public key : " + newKey.getPublicKey());
             System.out.println("My private key : " + newKey.getPrivateKey());
-
             System.out.println("Enregistrement de la clé ");
+            try {
+                PrintWriter pWriter = new PrintWriter(new FileWriter("keyPrivate.txt", true));
+                pWriter.print(newKey.getPrivateKey()+"\n");
+                pWriter.close() ;
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
             System.out.println("Inscription réussie ");
         }
-
     }
 }
