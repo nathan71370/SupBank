@@ -8,7 +8,7 @@ import javax.swing.*;
 public class UserAccountForm extends JFrame {
 
     JPanel panel0, panel1, panel2;
-    JLabel user_label, password_label, message, user_balance_label, transfert_to_label, transfert_amount_label;
+    public JLabel user_label, password_label, message, user_balance_label, transfert_to_label, transfert_amount_label;
     JTextField transfert_to, tranfert_amount;
     JPasswordField password_text;
     JButton cancel, transfer_money, start_mining;
@@ -35,7 +35,7 @@ public class UserAccountForm extends JFrame {
         }
         //JLabel
         user_label = new JLabel("Hello User : -- GET USER CONNECTED --");
-        user_balance_label = new JLabel("-- GET USER CONNECTED -- : -- GET USER BALANCE --");
+        user_balance_label = new JLabel("Balance : "+wallet.getBalance());
         transfert_to_label = new JLabel("Transfer to : ");
         transfert_amount_label = new JLabel("Amount : ");
         password_label = new JLabel("Password :");
@@ -111,6 +111,10 @@ public class UserAccountForm extends JFrame {
 
         setLocationRelativeTo(null);
         return toolBar;
+    }
+
+    public void updateBalance(){
+        user_balance_label.setText("Balance : "+wallet.getBalance());
     }
 
 

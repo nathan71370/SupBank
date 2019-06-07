@@ -12,16 +12,17 @@ public class AssassinsCoin {
 
     public static int difficulty = 5;
     public static float minimumTransaction = 0.1f;
-    public static Wallet walletA;
-    public static Wallet walletB;
+    public static Wallet currentWallet;
     public static Transaction genesisTransaction;
+
+    public static boolean firstTime;
 
 
     public AssassinsCoin(){
-        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+      /*  Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 
 
-        /*walletA = new Wallet();
+        walletA = new Wallet();
         walletB = new Wallet();
         Wallet coinbase = new Wallet();
 
@@ -30,6 +31,7 @@ public class AssassinsCoin {
 
 
         genesisTransaction = new Transaction(coinbase.publicKey, walletA.publicKey, 100f, null);
+        System.out.println(coinbase.privateKey);
         genesisTransaction.generateSignature(coinbase.privateKey);
         genesisTransaction.transactionId = "0";
         genesisTransaction.outputs.add(new TransactionOutput(genesisTransaction.reciepient, genesisTransaction.value, genesisTransaction.transactionId));
@@ -38,33 +40,33 @@ public class AssassinsCoin {
         System.out.println("Creating and Mining Genesis block... ");
         Block genesis = new Block("0");
         genesis.addTransaction(genesisTransaction);
-        addBlock(genesis);*/
+        addBlock(genesis);
 
 
 
-        /*Block block1 = new Block(genesis.hash);
-        System.out.println("\nWalletA's balance is: " + walletA.getBalance(walletA));
+        Block block1 = new Block(genesis.hash);
+        System.out.println("\nWalletA's balance is: " + walletA.getBalance());
         //System.out.println("\nWalletB's balance is: " + walletA.getBalance(walletB));
         System.out.println("\nWalletA is Attempting to send funds (40) to WalletB...");
         block1.addTransaction(walletA.sendFunds(walletB.publicKey, 40f));
         addBlock(block1);
-        System.out.println("\nWalletA's balance is: " + walletA.getBalance(null));
-        System.out.println("WalletB's balance is: " + walletB.getBalance(null));*/
-/*
+        System.out.println("\nWalletA's balance is: " + walletA.getBalance());
+        System.out.println("WalletB's balance is: " + walletB.getBalance());
+
         Block block2 = new Block(block1.hash);
         System.out.println("\nWalletA Attempting to send more funds (1000) than it has...");
         block2.addTransaction(walletA.sendFunds(walletB.publicKey, 1000f));
         addBlock(block2);
-        System.out.println("\nWalletA's balance is: " + walletA.getBalance(null));
-        System.out.println("WalletB's balance is: " + walletB.getBalance(null));
+        System.out.println("\nWalletA's balance is: " + walletA.getBalance());
+        System.out.println("WalletB's balance is: " + walletB.getBalance());
 
         Block block3 = new Block(block2.hash);
         System.out.println("\nWalletB is Attempting to send funds (20) to WalletA...");
         block3.addTransaction(walletB.sendFunds( walletA.publicKey, 20));
         System.out.println("\nWalletA's balance is: " + walletA.getBalance());
-        System.out.println("WalletB's balance is: " + walletB.getBalance());*/
+        System.out.println("WalletB's balance is: " + walletB.getBalance());
 
-        //isChainValid();
+        isChainValid(); */
 
     }
 
@@ -149,6 +151,14 @@ public class AssassinsCoin {
         }
         System.out.println("Blockchain is valid");
         return true;
+    }
+
+    public static Wallet getCurrentWallet(){
+        return currentWallet;
+    }
+
+    public void setCurrentWallet(Wallet currentWallet){
+        this.currentWallet = currentWallet;
     }
 
     public static void addBlock(Block newBlock) {
