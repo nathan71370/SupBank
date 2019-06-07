@@ -68,7 +68,6 @@ public class Wallet {
     }
 
     public String getPrivateKey(){
-        //System.out.println(privateKey);
         return StringHash.getStringFromKey(this.privateKey);
     }
 
