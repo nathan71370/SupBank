@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 public class Block {
 
@@ -32,6 +33,7 @@ public class Block {
 
 
     public void mineBlock(int difficulty) {
+
         merkleRoot = StringHash.getMerkleRoot(transactions);
         String target = StringHash.getDifficultyString(difficulty);
         while(!hash.substring( 0, difficulty).equals(target)) {
@@ -40,6 +42,19 @@ public class Block {
         }
         System.out.println("Block Mined!!! : " + hash);
 
+        //float total = 0;
+        if(!AssassinsCoin.firstTime) {
+            for (Map.Entry<String, TransactionOutput> item : AssassinsCoin.UTXOs.entrySet()) {
+                System.out.println(item.getValue().value);
+                item.getValue().value = item.getValue().value + 10;
+                item.setValue(item.getValue());
+                TransactionOutput UTXO = item.getValue();
+                if (UTXO.isMine(AssassinsCoin.getCurrentWallet().publicKey)) {
+                    AssassinsCoin.getCurrentWallet().UTXOs.put(UTXO.id, UTXO);
+                    //total += UTXO.value;
+                }
+            }
+        }
     }
 
 

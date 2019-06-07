@@ -8,19 +8,21 @@ import javax.swing.*;
 public class UserAccountForm extends JFrame {
 
     JPanel panel0, panel1, panel2;
-    JLabel user_label, password_label, message, user_balance_label, transfert_to_label, transfert_amount_label;
+    public JLabel user_label, password_label, message, user_balance_label, transfert_to_label, transfert_amount_label;
     JTextField transfert_to, tranfert_amount;
     JPasswordField password_text;
     JButton cancel, transfer_money, start_mining;
     ControllerUser controlUser;
     Wallet wallet;
 
+    JPanel b1,b2,b3;
+
     public UserAccountForm(Wallet wallet){
         this.wallet = wallet;
         setTitle("Account");
         init();
         createView();
-        setSize(500, 500);
+        setSize(800, 200);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -35,7 +37,7 @@ public class UserAccountForm extends JFrame {
         }
         //JLabel
         user_label = new JLabel("Hello User : -- GET USER CONNECTED --");
-        user_balance_label = new JLabel("-- GET USER CONNECTED -- : -- GET USER BALANCE --");
+        user_balance_label = new JLabel("Balance : "+wallet.getBalance());
         transfert_to_label = new JLabel("Transfer to : ");
         transfert_amount_label = new JLabel("Amount : ");
         password_label = new JLabel("Password :");
@@ -54,6 +56,8 @@ public class UserAccountForm extends JFrame {
 
     private void createView(){
         //Jpanel
+
+
         panel0 = new JPanel(new GridLayout(1, 2));
         panel0.add(user_label);
         panel0.add(user_balance_label);
@@ -66,8 +70,6 @@ public class UserAccountForm extends JFrame {
         panel1.add(tranfert_amount);
         panel1.add(transfer_money);
 
-
-        //add(panel0, BorderLayout.CENTER);
         panel2 = new JPanel();
         panel2.add(panel0, BorderLayout.CENTER);
         panel2.add(panel1, BorderLayout.CENTER );
@@ -111,6 +113,10 @@ public class UserAccountForm extends JFrame {
 
         setLocationRelativeTo(null);
         return toolBar;
+    }
+
+    public void updateBalance(){
+        user_balance_label.setText("Balance : "+wallet.getBalance());
     }
 
 
