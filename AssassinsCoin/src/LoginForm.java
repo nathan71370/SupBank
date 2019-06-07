@@ -5,7 +5,6 @@ import java.awt.event.WindowEvent;
 import java.security.Security;
 
 import javax.swing.*;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 public class LoginForm extends JFrame{
     JPanel panel1, panel2;
@@ -13,7 +12,6 @@ public class LoginForm extends JFrame{
     JPasswordField key_text;
     JButton connection, register;
     Controller control;
-    UIManager ui;
 
     public LoginForm(){
         init();
@@ -25,6 +23,8 @@ public class LoginForm extends JFrame{
 
     }
 
+
+
     private void init() {
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -33,6 +33,8 @@ public class LoginForm extends JFrame{
             throw new RuntimeException("Test Failed. MetalLookAndFeel not set "
                     + "for frame");
         }
+
+
 
         //JLabel
         key_label = new JLabel("My Key :");
@@ -59,7 +61,10 @@ public class LoginForm extends JFrame{
         panel1.add(register);
 
 
+
+
         panel2.add(panel1, BorderLayout.CENTER);
+
         setControlButton(control);
         setContentPane(panel2);
     }
@@ -68,6 +73,7 @@ public class LoginForm extends JFrame{
         connection.addActionListener(listener);
         register.addActionListener(listener);
     }
+
 
 
 }

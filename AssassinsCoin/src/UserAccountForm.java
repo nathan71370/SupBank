@@ -18,7 +18,7 @@ public class UserAccountForm extends JFrame {
         setTitle("Account");
         init();
         createView();
-        setSize(600, 600);
+        setSize(500, 500);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -67,6 +67,9 @@ public class UserAccountForm extends JFrame {
 
         //add(panel0, BorderLayout.CENTER);
         panel2 = new JPanel();
+
+        //panel2.add(this.createToolBar(), BorderLayout.NORTH);
+
         panel2.add(panel0, BorderLayout.CENTER);
         panel2.add(panel1, BorderLayout.CENTER );
         panel2.add(start_mining);
@@ -78,5 +81,39 @@ public class UserAccountForm extends JFrame {
     public void setControlButton(ControllerUser listener) {
         start_mining.addActionListener(listener);
     }
+
+    private JToolBar createToolBar() {
+        JToolBar toolBar = new JToolBar();
+
+        JButton btnNew = new JButton( "NEW" );
+        btnNew.setToolTipText( "New File (CTRL+N)" );
+        toolBar.add( btnNew );
+
+        JButton btnSave = new JButton("SAVE");
+        btnSave.setToolTipText( "Save (CTRL+S)" );
+        toolBar.add( btnSave );
+
+        toolBar.addSeparator();
+
+        JButton btnCopy = new JButton("CP");
+        btnCopy.setToolTipText( "Copy (CTRL+C)" );
+        toolBar.add( btnCopy );
+
+        JButton btnCut = new JButton("CUT");
+        btnCut.setToolTipText( "Cut (CTRL+X)" );
+        toolBar.add( btnCut );
+
+        toolBar.addSeparator();
+
+        JButton btnExit = new JButton("EXIT" );
+        btnExit.setToolTipText( "Exit (ALT+F4)" );
+        toolBar.add( btnExit );
+
+        toolBar.addSeparator();
+
+        setLocationRelativeTo(null);
+        return toolBar;
+    }
+
 
 }
