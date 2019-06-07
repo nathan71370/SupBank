@@ -69,11 +69,8 @@ public class LoginForm extends JFrame{
         setContentPane(panel2);
     }
 
-    public void setControlButton(Controller listener) {
+    private void setControlButton(Controller listener) {
         connection.addActionListener(listener);
         register.addActionListener(listener);
     }
-
-
-
 }
