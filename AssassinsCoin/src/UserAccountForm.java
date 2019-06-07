@@ -22,7 +22,7 @@ public class UserAccountForm extends JFrame {
         setTitle("Account");
         init();
         createView();
-        setSize(500, 500);
+        setSize(800, 200);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
