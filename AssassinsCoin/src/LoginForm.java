@@ -20,10 +20,7 @@ public class LoginForm extends JFrame{
         setSize(300, 100);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
-
-
 
     private void init() {
         try {
@@ -33,15 +30,10 @@ public class LoginForm extends JFrame{
             throw new RuntimeException("Test Failed. MetalLookAndFeel not set "
                     + "for frame");
         }
-
-
-
         //JLabel
         key_label = new JLabel("My Key :");
-
         //JTextField
         key_text = new JPasswordField();
-
         //JButton
         connection = new JButton("Connection");
         register = new JButton("Register");
@@ -60,9 +52,6 @@ public class LoginForm extends JFrame{
         panel1.add(connection);
         panel1.add(register);
 
-
-
-
         panel2.add(panel1, BorderLayout.CENTER);
 
         setControlButton(control);
@@ -73,7 +62,5 @@ public class LoginForm extends JFrame{
         connection.addActionListener(listener);
         register.addActionListener(listener);
     }
-
-
 
 }
