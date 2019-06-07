@@ -9,11 +9,9 @@ public class Client {
 
     public static void main(String[] args)throws IOException {
 
-        LoginForm f = new LoginForm();
-        //UserAccountForm f1 = new UserAccountForm();
-
         Socket sock=new Socket("localhost", 6066);
         DataInputStream in= new DataInputStream(sock.getInputStream());
+        LoginForm f = new LoginForm();
         System.out.println(in.readUTF());
         DataOutputStream out =new DataOutputStream(sock.getOutputStream());
         out.writeUTF("waiting for connection");

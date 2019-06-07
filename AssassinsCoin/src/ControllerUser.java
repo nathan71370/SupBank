@@ -29,14 +29,12 @@ public class ControllerUser implements ActionListener{
                         if (!firstTime) {
                                 AssassinsCoin.genesisTransaction = new Transaction(coinbase.publicKey, AssassinsCoin.walletHashMap.get(wallet.getPrivateKey()).publicKey, 10f, null);
                                 AssassinsCoin.genesisTransaction.generateSignature(coinbase.privateKey);
-                                //genesisTransaction.transactionId = "0";
                                 AssassinsCoin.genesisTransaction.outputs.add(new TransactionOutput(AssassinsCoin.genesisTransaction.reciepient, AssassinsCoin.genesisTransaction.value, AssassinsCoin.genesisTransaction.transactionId));
                                 AssassinsCoin.UTXOs.put(AssassinsCoin.genesisTransaction.outputs.get(0).id, AssassinsCoin.genesisTransaction.outputs.get(0));
                                 Block currentBlock = new Block(previousBlock.previousHash);
                                 currentBlock.addTransaction(AssassinsCoin.genesisTransaction);
                                 AssassinsCoin.addBlock(currentBlock);
                                 previousBlock = currentBlock;
-                                //i++;
                                 System.out.println(wallet.getBalance());
                                 userAccountForm.updateBalance();
                                 AssassinsCoin.isChainValid();
@@ -72,17 +70,20 @@ public class ControllerUser implements ActionListener{
                 }
             }).start();
         } else if (e.getSource() == userAccountForm.transfer_money) {
-                    Block block = new Block(previousBlock.hash);
-                    System.out.println("\nWalletA Attempting to send more funds (1000) than it has...");
-                    if(AssassinsCoin.walletHashMap.get(userAccountForm.transfert_to_label.getText())!=null) {
-                        block.addTransaction(wallet.sendFunds(StringHash.getPublicKeyFromString(userAccountForm.transfert_to_label.getText()), Float.parseFloat(userAccountForm.transfert_amount_label.getText())));
-                        assassinsCoin.addBlock(block);
-                        previousBlock = block;
-                    }
-                    else{
-                        System.out.println("Wallet does not exist!");
-                    }
+                    new Thread(new Runnable() {
+                        public void run() {
+                            Block block = new Block(previousBlock.hash);
+                            System.out.println("\nWalletA Attempting to send more funds (1000) than it has...");
+                            if (AssassinsCoin.walletHashMap.get(userAccountForm.transfert_to_label.getText()) != null) {
+                                block.addTransaction(wallet.sendFunds(StringHash.getPublicKeyFromString(userAccountForm.transfert_to_label.getText()), Float.parseFloat(userAccountForm.transfert_amount_label.getText())));
+                                assassinsCoin.addBlock(block);
+                                previousBlock = block;
+                            } else {
+                                System.out.println("Wallet does not exist!");
+                            }
 
+                        }
+                    }).start();
                 }
 
     }

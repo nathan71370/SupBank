@@ -58,12 +58,12 @@ public class UserAccountForm extends JFrame {
         //Jpanel
 
 
-        panel0 = new JPanel(new GridLayout(1, 2));
+        panel0 = new JPanel(new GridLayout(1, 3));
         panel0.add(user_label);
         panel0.add(user_balance_label);
         panel0.add(start_mining);
 
-        panel1 = new JPanel(new GridLayout(1,4));
+        panel1 = new JPanel(new GridLayout(1,5));
         panel1.add(transfert_to_label);
         panel1.add(transfert_to);
         panel1.add(transfert_amount_label);

@@ -69,13 +69,12 @@ public class Server {
         }*/
 
         ServerSocket serverSock = new ServerSocket(6066);
-
+        LoginForm f = new LoginForm();
+        f.setVisible(false);
         while(true) {
             Socket Sock = serverSock.accept();
-
-            //AssassinsCoin assassinsCoin = new AssassinsCoin();
             DataOutputStream out = new DataOutputStream(Sock.getOutputStream());
-            out.writeUTF("i am fine, thank you");
+            out.writeUTF("Hello world");
             DataInputStream in = new DataInputStream(Sock.getInputStream());
             System.out.println(in.readUTF());
             //Sock.close();
