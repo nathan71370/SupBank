@@ -39,6 +39,7 @@ public class Block {
             hash = calculateHash();
         }
         System.out.println("Block Mined!!! : " + hash);
+
     }
 
 

@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class LoginForm extends JFrame implements ActionListener{
+public class LoginForm extends JFrame{
     JPanel panel1, panel2;
     JLabel key_label, message;
     JPasswordField key_text;
@@ -61,11 +61,8 @@ public class LoginForm extends JFrame implements ActionListener{
         setContentPane(panel2);
     }
 
-    public void setControlButton(Controller listener) {
+    private void setControlButton(Controller listener) {
         connection.addActionListener(listener);
         register.addActionListener(listener);
-    }
-
-    public void actionPerformed(ActionEvent e) {
     }
 }

@@ -33,13 +33,13 @@ public class Wallet {
 
     public float getBalance() {
         float total = 0;
-        for (Map.Entry<String, TransactionOutput> item: AssassinsCoin.UTXOs.entrySet()){
-            TransactionOutput UTXO = item.getValue();
-            if(UTXO.isMine(publicKey)) {
-                UTXOs.put(UTXO.id,UTXO);
-                total += UTXO.value ;
+            for (Map.Entry<String, TransactionOutput> item : AssassinsCoin.UTXOs.entrySet()) {
+                TransactionOutput UTXO = item.getValue();
+                if (UTXO.isMine(publicKey)) {
+                    UTXOs.put(UTXO.id, UTXO);
+                    total += UTXO.value;
+                }
             }
-        }
         return total;
     }
 
@@ -68,12 +68,12 @@ public class Wallet {
         return newTransaction;
     }
 
-    public PrivateKey getPrivateKey(){
+    public String getPrivateKey(){
         //System.out.println(privateKey);
-        return this.privateKey;
+        return StringHash.getStringFromKey(this.privateKey);
     }
 
-    public PublicKey getPublicKey(){
-        return this.publicKey;
+    public String getPublicKey(){
+        return StringHash.getStringFromKey(this.publicKey);
     }
 }
