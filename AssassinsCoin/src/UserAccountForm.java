@@ -15,6 +15,8 @@ public class UserAccountForm extends JFrame {
     ControllerUser controlUser;
     Wallet wallet;
 
+    JPanel b1,b2,b3;
+
     public UserAccountForm(Wallet wallet){
         this.wallet = wallet;
         setTitle("Account");
@@ -54,6 +56,8 @@ public class UserAccountForm extends JFrame {
 
     private void createView(){
         //Jpanel
+
+
         panel0 = new JPanel(new GridLayout(1, 2));
         panel0.add(user_label);
         panel0.add(user_balance_label);
@@ -65,6 +69,35 @@ public class UserAccountForm extends JFrame {
         panel1.add(transfert_amount_label);
         panel1.add(tranfert_amount);
         panel1.add(transfer_money);
+
+
+
+        /*
+        b1 = new JPanel();
+        b2 = new JPanel();
+        b3 = new JPanel();
+
+
+
+        b1.setLayout(new BoxLayout(b1, BoxLayout.LINE_AXIS));
+        b2.setLayout(new BoxLayout(b2, BoxLayout.LINE_AXIS));
+        b3.setLayout(new BoxLayout(b3, BoxLayout.PAGE_AXIS));
+
+        b1.add(user_label);
+        b1.add(user_balance_label);
+        b1.add(start_mining);
+
+        b2.add(transfert_to_label);
+        b2.add(transfert_to);
+        b2.add(transfert_amount_label);
+        b2.add(tranfert_amount);
+        b2.add(transfer_money);
+
+        b3.add(b1);
+        b3.add(b2);
+        */
+
+
 
 
         //add(panel0, BorderLayout.CENTER);
