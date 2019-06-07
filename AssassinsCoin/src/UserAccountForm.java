@@ -16,7 +16,8 @@ public class UserAccountForm extends JFrame {
     JLabel user_label, password_label, message, user_balance_label, transfert_to_label, transfert_amount_label;
     JTextField transfert_to, tranfert_amount;
     JPasswordField password_text;
-    JButton cancel, transfer_money, start_minning;
+    JButton cancel, transfer_money, start_mining;
+    ControllerUser controlUser;
 
     public UserAccountForm(){
         setTitle("Account");
@@ -41,8 +42,10 @@ public class UserAccountForm extends JFrame {
         password_text = new JPasswordField();
 
         //JButton
-        transfer_money = new JButton();
-        start_minning = new JButton();
+        transfer_money = new JButton("Transfert Money");
+        start_mining = new JButton("Start Mining");
+
+        controlUser = new ControllerUser(this);
     }
 
     private void createView(){
@@ -50,7 +53,7 @@ public class UserAccountForm extends JFrame {
         panel0 = new JPanel(new GridLayout(1, 2));
         panel0.add(user_label);
         panel0.add(user_balance_label);
-        panel0.add(start_minning);
+        panel0.add(start_mining);
 
         panel1 = new JPanel(new GridLayout(2,4));
         panel1.add(transfert_to_label);
@@ -69,11 +72,7 @@ public class UserAccountForm extends JFrame {
     }
 
     public void setControlButton(Controller listener) {
-        start_minning.addActionListener(listener);
+        start_mining.addActionListener(listener);
     }
-
-    public void actionPerformed(ActionEvent e) {
-    }
-
 
 }

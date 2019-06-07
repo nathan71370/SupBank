@@ -65,6 +65,10 @@ public class AssassinsCoin {
 
     }
 
+    public static Block getGenesisBlock(){
+        return new Block("0");
+    }
+
 
     public static Boolean isChainValid() {
         Block currentBlock;
