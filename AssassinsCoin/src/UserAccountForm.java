@@ -22,7 +22,7 @@ public class UserAccountForm extends JFrame {
         setTitle("Account");
         init();
         createView();
-        setSize(500, 500);
+        setSize(800, 200);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -70,37 +70,6 @@ public class UserAccountForm extends JFrame {
         panel1.add(tranfert_amount);
         panel1.add(transfer_money);
 
-
-
-        /*
-        b1 = new JPanel();
-        b2 = new JPanel();
-        b3 = new JPanel();
-
-
-
-        b1.setLayout(new BoxLayout(b1, BoxLayout.LINE_AXIS));
-        b2.setLayout(new BoxLayout(b2, BoxLayout.LINE_AXIS));
-        b3.setLayout(new BoxLayout(b3, BoxLayout.PAGE_AXIS));
-
-        b1.add(user_label);
-        b1.add(user_balance_label);
-        b1.add(start_mining);
-
-        b2.add(transfert_to_label);
-        b2.add(transfert_to);
-        b2.add(transfert_amount_label);
-        b2.add(tranfert_amount);
-        b2.add(transfer_money);
-
-        b3.add(b1);
-        b3.add(b2);
-        */
-
-
-
-
-        //add(panel0, BorderLayout.CENTER);
         panel2 = new JPanel();
         panel2.add(panel0, BorderLayout.CENTER);
         panel2.add(panel1, BorderLayout.CENTER );
