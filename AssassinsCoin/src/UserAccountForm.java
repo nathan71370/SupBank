@@ -3,12 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class UserAccountForm extends JFrame {
 
@@ -29,6 +24,13 @@ public class UserAccountForm extends JFrame {
     }
 
     private void init(){
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (ClassNotFoundException | InstantiationException |
+                IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            throw new RuntimeException("Test Failed. MetalLookAndFeel not set "
+                    + "for frame");
+        }
         //JLabel
         user_label = new JLabel("Hello User : -- GET USER CONNECTED --");
         user_balance_label = new JLabel("-- GET USER CONNECTED -- : -- GET USER BALANCE --");
@@ -53,9 +55,9 @@ public class UserAccountForm extends JFrame {
         panel0 = new JPanel(new GridLayout(1, 2));
         panel0.add(user_label);
         panel0.add(user_balance_label);
-        panel0.add(start_mining);
+        //panel0.add(start_mining);
 
-        panel1 = new JPanel(new GridLayout(2,4));
+        panel1 = new JPanel(new GridLayout(1,4));
         panel1.add(transfert_to_label);
         panel1.add(transfert_to);
         panel1.add(transfert_amount_label);
@@ -67,11 +69,13 @@ public class UserAccountForm extends JFrame {
         panel2 = new JPanel();
         panel2.add(panel0, BorderLayout.CENTER);
         panel2.add(panel1, BorderLayout.CENTER );
+        panel2.add(start_mining);
+        setControlButton(controlUser);
         setContentPane(panel2);
 
     }
 
-    public void setControlButton(Controller listener) {
+    public void setControlButton(ControllerUser listener) {
         start_mining.addActionListener(listener);
     }
 

@@ -14,11 +14,9 @@ public class ControllerUser implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == userAccountForm.start_mining){
             block.mineBlock(5);
-            System.out.println("test");
-            while (1 != 2){
+            while (true){
                 Block nextBlock = new Block(block.previousHash);
                 AssassinsCoin.addBlock(nextBlock);
-                System.out.println("test");
             }
 
         }
