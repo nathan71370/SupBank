@@ -40,6 +40,7 @@ public class Controller implements ActionListener {
             newKey.generateKeyPair();
             AssassinsCoin.walletHashMap.put(newKey.getPrivateKey(),newKey);
             try {
+                System.out.println("My Public Key : " + newKey.getPublicKey());
                 PrintWriter pWriter = new PrintWriter(new FileWriter("keyPrivate.txt", true));
                 pWriter.print(newKey.getPrivateKey()+"\n");
                 pWriter.close() ;
